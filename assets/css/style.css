@@ -190,3 +190,8 @@ code { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation
 figure.graphique { margin: 12px 0; }
 figure.graphique figcaption { font-weight: 700; color: var(--vert-fonce); margin-bottom: 4px; }
 figure.graphique small { display: block; color: var(--texte-doux); margin-top: 4px; }
+.verif { display: grid; gap: 8px; max-width: 420px; margin: 16px 0; }
+.verif label { font-weight: 700; }
+.verif input { font: inherit; padding: 10px 12px; border: 1px solid var(--ligne, #b9c9b5); border-radius: 8px; background: var(--fond, #fff); color: inherit; }
+.verif-resultat { padding: 12px 14px; border-radius: 8px; border-left: 4px solid var(--vert, #058007); background: var(--fond-doux, #f6faf4); }
+.verif-resultat.non { border-left-color: var(--erreur); }

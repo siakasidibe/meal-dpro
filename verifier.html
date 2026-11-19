@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vérifier un certificat</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="entete">
+  <div class="contenu">
+    <img class="logo" src="assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
+    <div class="entete-titre">
+      <strong>Le MEAL en pratique</strong>
+      <span>Vérifier un certificat</span>
+    </div>
+  </div>
+  <div class="progression" aria-hidden="true"><div style="width:0%"></div></div>
+</header>
+<main class="contenu">
+  <p class="fil"><a href="index.html">Accueil</a> › Vérifier un certificat</p>
+  <h1>Vérifier un certificat</h1>
+  <p>Chaque certificat « Le MEAL en pratique » porte un numéro et un QR code. Scannez le QR code, ou saisissez le numéro ci-dessous, pour vérifier qu'il a bien été délivré par le cabinet M.C Consulting Mopti.</p>
+  <form id="verif" class="verif">
+    <label for="numero">Numéro du certificat</label>
+    <input id="numero" name="n" type="text" placeholder="MCC-MEAL-2027-001" autocomplete="off" required>
+    <button type="submit" class="bouton">Vérifier</button>
+  </form>
+  <div id="resultat" role="status" aria-live="polite"></div>
+</main>
+<script src="assets/js/verifier.js"></script>
+<footer>
+  <div class="contenu">
+    <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
+    <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
+  </div>
+</footer>
+
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>
