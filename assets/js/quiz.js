@@ -49,17 +49,62 @@
     majScore();
   });
 
-  // Bouton « J'ai terminé cette section »
+  // Parcours imposé : les sections se suivent dans l'ordre (window.PARCOURS, généré par construire.py)
+  var P = window.PARCOURS || [], R = window.RACINE || '';
+  function fait(id) { return !!lire('fait-' + id); }
+  function rang(id) { for (var k = 0; k < P.length; k++) if (P[k][0] === id) return k; return -1; }
+  function premierManquant(i) { for (var k = 0; k < i; k++) if (!fait(P[k][0])) return P[k]; return null; }
+  function hache(t) { var a = 5381; for (var k = 0; k < t.length; k++) a = ((a * 33) ^ t.charCodeAt(k)) >>> 0; return a; }
+  function restantes() {
+    var n = 0;
+    document.querySelectorAll('[data-quiz]').forEach(function (q) {
+      var r = lire('quiz-' + q.getAttribute('data-quiz')) || {};
+      n += q.querySelectorAll('.quiz-question').length - Object.keys(r).length;
+    });
+    return n;
+  }
+
+  // Bouton « J'ai terminé » : enregistre la section puis ouvre la suivante
   document.querySelectorAll('[data-terminer]').forEach(function (btn) {
-    var cle = 'fait-' + btn.getAttribute('data-terminer');
-    var libelle = btn.getAttribute('data-libelle') || btn.textContent;
-    function maj(fait) { btn.setAttribute('aria-pressed', fait ? 'true' : 'false'); btn.textContent = fait ? 'Terminé ✓' : libelle; }
-    maj(lire(cle));
-    btn.addEventListener('click', function () { var f = !lire(cle); ecrire(cle, f); maj(f); });
+    var id = btn.getAttribute('data-terminer'), i = rang(id), suivante = i >= 0 ? (P[i + 1] ? R + P[i + 1][1] : R + 'index.html') : null;
+    var msg = document.createElement('p'); msg.className = 'msg-terminer'; msg.setAttribute('role', 'status');
+    btn.closest('nav').insertAdjacentElement('beforebegin', msg);
+    function maj() { var f = fait(id); btn.setAttribute('aria-pressed', f ? 'true' : 'false'); if (f) btn.textContent = suivante ? 'Terminé ✓ · Continuer' : 'Terminé ✓'; }
+    maj();
+    btn.addEventListener('click', function () {
+      var n = restantes();
+      if (!fait(id) && n > 0) { msg.textContent = 'Répondez d\'abord à toutes les questions de la page : ' + n + ' question(s) restante(s).'; return; }
+      ecrire('fait-' + id, true); maj();
+      if (suivante) location.href = suivante;
+    });
+    // Section verrouillée tant que les précédentes ne sont pas terminées
+    var manque = i > 0 && !fait(id) ? premierManquant(i) : null;
+    if (manque) {
+      var main = document.querySelector('main.contenu'), garder = main.querySelectorAll('.fil, h1');
+      main.innerHTML = '';
+      garder.forEach(function (el) { main.appendChild(el); });
+      var boite = document.createElement('section'); boite.className = 'verrou';
+      boite.innerHTML = '<h2>Section verrouillée</h2><p>Le cours se suit dans l\'ordre. Terminez d\'abord : <strong></strong>.</p>' +
+        '<p><a class="bouton" href="' + R + manque[1] + '">Aller à cette section</a></p>' +
+        '<details><summary>Code formateur</summary><form class="code"><label for="code">Le formateur peut débloquer cette section, par exemple sur un nouveau téléphone.</label>' +
+        '<input id="code" type="password" autocomplete="off"><button type="submit" class="bouton secondaire">Débloquer</button></form></details>';
+      boite.querySelector('strong').textContent = manque[2];
+      main.appendChild(boite);
+      boite.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (hache(boite.querySelector('input').value.trim().toUpperCase()) === 3176499030) { P.slice(0, i).forEach(function (p) { ecrire('fait-' + p[0], true); }); location.reload(); }
+        else boite.querySelector('label').textContent = 'Code incorrect.';
+      });
+    }
   });
 
-  // Sommaire : afficher les étapes terminées
+  // Sommaire : sections terminées, à faire ou verrouillées
   document.querySelectorAll('[data-etat]').forEach(function (el) {
-    if (lire('fait-' + el.getAttribute('data-etat'))) el.textContent = 'Terminé ✓';
+    var id = el.getAttribute('data-etat'), i = rang(id), lien = el.parentNode.querySelector('a');
+    if (fait(id)) el.textContent = 'Terminé ✓';
+    else if (i > 0 && premierManquant(i)) {
+      el.textContent = 'Verrouillé';
+      if (lien) { lien.classList.add('verrouille'); lien.setAttribute('aria-disabled', 'true'); lien.addEventListener('click', function (e) { e.preventDefault(); }); }
+    } else if (i >= 0) el.textContent = 'À faire';
   });
 })();
