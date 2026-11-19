@@ -3,35 +3,57 @@
   function lire(cle) { try { return JSON.parse(localStorage.getItem(cle)); } catch (e) { return null; } }
   function ecrire(cle, val) { try { localStorage.setItem(cle, JSON.stringify(val)); } catch (e) {} }
 
+  // Les quiz du site servent à apprendre : il faut trouver toutes les bonnes réponses (une erreur se corrige avec « Réessayer »).
+  // Seul le test de positionnement (m0-test) demande simplement de répondre à tout.
   document.querySelectorAll('[data-quiz]').forEach(function (quiz) {
-    var id = quiz.getAttribute('data-quiz');
+    var id = quiz.getAttribute('data-quiz'), positionnement = id === 'm0-test';
     var questions = quiz.querySelectorAll('.quiz-question');
     var scoreEl = quiz.querySelector('.score');
     var reponses = lire('quiz-' + id) || {};
+    if (!positionnement) Object.keys(reponses).forEach(function (k) { if (!reponses[k]) delete reponses[k]; });
 
     function majScore() {
       var faites = 0, justes = 0;
       questions.forEach(function (q, i) { if (reponses[i] !== undefined) { faites++; if (reponses[i]) justes++; } });
-      if (scoreEl) scoreEl.textContent = faites ? 'Score : ' + justes + ' sur ' + questions.length + (faites < questions.length ? ' (' + (questions.length - faites) + ' question(s) restante(s))' : '') : '';
+      if (!scoreEl) return;
+      if (positionnement) scoreEl.textContent = faites ? 'Score : ' + justes + ' sur ' + questions.length + (faites < questions.length ? ' (' + (questions.length - faites) + ' question(s) restante(s))' : '') : '';
+      else scoreEl.textContent = justes ? 'Bonnes réponses : ' + justes + ' sur ' + questions.length + (justes < questions.length ? '. Trouvez toutes les bonnes réponses pour valider.' : '. Bravo, vous pouvez valider.') : '';
+    }
+    function marquer(q, valeur, juste) {
+      var bonne = q.getAttribute('data-bonne'), expl = q.querySelector('.explication');
+      q.dataset.repondu = '1';
+      q.querySelectorAll('.choix').forEach(function (c) {
+        var inp = c.querySelector('input'), v = inp.value;
+        if (v === valeur) { c.classList.add(juste ? 'juste' : 'faux'); inp.checked = true; }
+        else if (positionnement && v === bonne) c.classList.add('juste');
+        inp.disabled = true;
+      });
+      expl.querySelector('.verdict').innerHTML = juste ? '<strong class="ok">Bonne réponse.</strong> ' : '<strong class="ko">Ce n\'est pas la bonne réponse.</strong> ';
+      var r = expl.querySelector('.reessayer'); if (r) r.remove();
+      if (!juste && !positionnement) {
+        r = document.createElement('button'); r.type = 'button'; r.className = 'bouton secondaire reessayer'; r.textContent = 'Réessayer';
+        r.addEventListener('click', function () { effacer(q); });
+        expl.appendChild(r);
+      }
+      expl.hidden = false;
+    }
+    function effacer(q) {
+      delete q.dataset.repondu;
+      q.querySelector('.explication').hidden = true;
+      var r = q.querySelector('.reessayer'); if (r) r.remove();
+      q.querySelectorAll('.choix').forEach(function (c) { c.classList.remove('juste', 'faux'); var inp = c.querySelector('input'); inp.disabled = false; inp.checked = false; });
     }
 
     questions.forEach(function (q, i) {
       var bonne = q.getAttribute('data-bonne');
-      var expl = q.querySelector('.explication');
+      if (reponses[i] === true) marquer(q, bonne, true);  // les bonnes réponses déjà trouvées restent affichées
       q.querySelectorAll('input[type=radio]').forEach(function (input) {
         input.addEventListener('change', function () {
           if (q.dataset.repondu) return;
-          q.dataset.repondu = '1';
           var juste = input.value === bonne;
-          q.querySelectorAll('.choix').forEach(function (c) {
-            var v = c.querySelector('input').value;
-            if (v === bonne) c.classList.add('juste');
-            else if (v === input.value) c.classList.add('faux');
-            c.querySelector('input').disabled = true;
-          });
-          expl.querySelector('.verdict').innerHTML = juste ? '<strong class="ok">Bonne réponse.</strong> ' : '<strong class="ko">Ce n\'est pas la bonne réponse.</strong> ';
-          expl.hidden = false;
-          reponses[i] = juste; ecrire('quiz-' + id, reponses); majScore();
+          marquer(q, input.value, juste);
+          if (juste || positionnement) reponses[i] = juste; else delete reponses[i];
+          ecrire('quiz-' + id, reponses); majScore();
         });
       });
     });
@@ -39,13 +61,10 @@
     var recommencer = quiz.querySelector('[data-recommencer]');
     if (recommencer) recommencer.addEventListener('click', function () {
       reponses = {}; ecrire('quiz-' + id, reponses);
-      questions.forEach(function (q) {
-        delete q.dataset.repondu;
-        q.querySelector('.explication').hidden = true;
-        q.querySelectorAll('.choix').forEach(function (c) { c.classList.remove('juste', 'faux'); var inp = c.querySelector('input'); inp.disabled = false; inp.checked = false; });
-      });
+      questions.forEach(effacer);
       majScore();
     });
+    ecrire('quiz-' + id, reponses);
     majScore();
   });
 
@@ -58,8 +77,9 @@
   function restantes() {
     var n = 0;
     document.querySelectorAll('[data-quiz]').forEach(function (q) {
-      var r = lire('quiz-' + q.getAttribute('data-quiz')) || {};
-      n += q.querySelectorAll('.quiz-question').length - Object.keys(r).length;
+      var id = q.getAttribute('data-quiz'), r = lire('quiz-' + id) || {};
+      var ok = Object.keys(r).filter(function (k) { return id === 'm0-test' || r[k] === true; }).length;
+      n += q.querySelectorAll('.quiz-question').length - ok;
     });
     return n;
   }
@@ -70,10 +90,23 @@
     var msg = document.createElement('p'); msg.className = 'msg-terminer'; msg.setAttribute('role', 'status');
     btn.closest('nav').insertAdjacentElement('beforebegin', msg);
     function maj() { var f = fait(id); btn.setAttribute('aria-pressed', f ? 'true' : 'false'); if (f) btn.textContent = suivante ? 'Terminé ✓ · Continuer' : 'Terminé ✓'; }
-    maj();
+    var avancer = btn.closest('nav').querySelector('a.bouton:not(.secondaire)');
+    var cible = avancer ? avancer.getAttribute('href').split('/').pop() : '';
+    var bloque = avancer && suivante && cible !== 'index.html' && !/sommaire|accueil/i.test(avancer.textContent);
+    function majAvancer() {
+      if (!bloque) return;
+      var f = fait(id);
+      avancer.classList.toggle('verrouille', !f);
+      if (f) avancer.removeAttribute('aria-disabled'); else avancer.setAttribute('aria-disabled', 'true');
+      avancer.title = f ? '' : 'Validez d\'abord cette étape avec « J\'ai terminé »';
+    }
+    if (bloque) avancer.addEventListener('click', function (e) {
+      if (!fait(id)) { e.preventDefault(); msg.textContent = 'Validez d\'abord cette étape avec le bouton « J\'ai terminé ».'; }
+    });
+    maj(); majAvancer();
     btn.addEventListener('click', function () {
       var n = restantes();
-      if (!fait(id) && n > 0) { msg.textContent = 'Répondez d\'abord à toutes les questions de la page : ' + n + ' question(s) restante(s).'; return; }
+      if (!fait(id) && n > 0) { msg.textContent = 'Pour valider cette étape, trouvez la bonne réponse à toutes les questions de la page : ' + n + ' question(s) restante(s).'; return; }
       ecrire('fait-' + id, true); maj();
       if (suivante) location.href = suivante;
     });

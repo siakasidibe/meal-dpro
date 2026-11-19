@@ -203,3 +203,5 @@ figure.graphique small { display: block; color: var(--texte-doux); margin-top: 4
 .verrou .code { display: grid; gap: 8px; max-width: 320px; margin-top: 8px; }
 .verrou .code input { font: inherit; padding: 8px 10px; border: 1px solid var(--ligne); border-radius: 8px; background: var(--fond); color: inherit; }
 .sommaire a.verrouille { opacity: .5; cursor: not-allowed; }
+.explication .reessayer { display: block; margin-top: 10px; }
+.navigation a.bouton.verrouille { opacity: .5; cursor: not-allowed; }
