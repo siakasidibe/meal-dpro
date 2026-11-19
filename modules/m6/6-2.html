@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>6.2 Statistiques et désagrégation</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="entete">
+  <div class="contenu">
+    <img class="logo" src="../../assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
+    <div class="entete-titre">
+      <strong>Le MEAL en pratique</strong>
+      <span>Module 6 · Section 6.2 sur 4</span>
+    </div>
+  </div>
+  <div class="progression" aria-hidden="true"><div style="width:50%"></div></div>
+</header>
+<main class="contenu">
+  <p class="fil"><a href="index.html">Module 6 : Analyser les données</a> › 6.2</p>
+  <h1>6.2 Fréquences, pourcentages, moyenne, médiane et désagrégation</h1>
+  <ul class="reperes" aria-label="Repères">
+    <li>Lecture : 35 min</li>
+    <li>Fil rouge : projet BADENYA</li>
+  </ul>
+  <p class="objectif"><strong>Objectif.</strong> À la fin de cette section, vous saurez calculer dans Excel un effectif, un pourcentage, une moyenne et une médiane, et ventiler un indicateur par sous-groupe.</p>
+
+  <section class="testez" aria-labelledby="testez-titre">
+    <h2 id="testez-titre">Testez-vous avant de lire</h2>
+    <p>Prenez une minute pour réfléchir. Il n'y a rien à rendre.</p>
+    <ol>
+      <li>Un rapport annonce « revenu moyen : 165 000 FCFA ». Est-ce le revenu de la plupart des femmes ?
+        <details><summary>Une piste</summary><p>Pas forcément : quelques revenus très élevés suffisent à tirer la moyenne vers le haut.</p></details></li>
+      <li>« 55 % des femmes vendent régulièrement. » Que vous manque-t-il pour juger ce chiffre ?
+        <details><summary>Une piste</summary><p>Sur combien de femmes ? Et ce chiffre est-il le même partout, pour toutes ?</p></details></li>
+    </ol>
+  </section>
+
+  <h2>L'essentiel</h2>
+  <h3>Deux sortes de variables</h3>
+  <ul>
+    <li><strong>Catégorielles</strong> : la réponse est une catégorie (village, oui/non, tranche d'âge). On les résume par des <strong>effectifs</strong> (combien de femmes) et des <strong>pourcentages</strong>.</li>
+    <li><strong>Numériques</strong> : la réponse est un nombre (âge, revenu, nombre de ventes). On les résume par la <strong>moyenne</strong>, la <strong>médiane</strong>, le minimum et le maximum.</li>
+  </ul>
+
+  <h3>Effectif et pourcentage</h3>
+  <p>Pourcentage = effectif concerné ÷ effectif du groupe × 100. Le dénominateur doit toujours être clair : toutes les femmes interrogées, ou seulement celles d'un sous-groupe. On présente le pourcentage avec son effectif : <strong>55,0 % (165)</strong>.</p>
+
+  <h3>Moyenne et médiane</h3>
+  <ul>
+    <li><strong>Moyenne</strong> : la somme des valeurs divisée par leur nombre. Elle est sensible aux valeurs extrêmes.</li>
+    <li><strong>Médiane</strong> : la valeur du milieu quand on range les valeurs dans l'ordre ; la moitié des femmes est en dessous, l'autre moitié au-dessus. Elle résiste aux valeurs extrêmes.</li>
+  </ul>
+  <p>Pour les revenus, souvent très inégaux, on présente les deux. Un grand écart entre moyenne et médiane est en soi une information.</p>
+
+  <h3>Désagréger</h3>
+  <p>Désagréger (ou ventiler), c'est calculer l'indicateur séparément pour chaque sous-groupe prévu dans le plan d'analyse. Une bonne moyenne générale peut cacher un groupe qui reste en arrière.</p>
+
+  <h3>Les fonctions Excel utiles</h3>
+  <div class="tableau">
+    <table>
+      <thead><tr><th scope="col">Besoin</th><th scope="col">Fonction (Excel en français)</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Compter les lignes d'une colonne</th><td><code>NBVAL(A2:A301)</code></td></tr>
+        <tr><th scope="row">Compter selon une condition</th><td><code>NB.SI(H2:H301;"&gt;=2")</code></td></tr>
+        <tr><th scope="row">Compter selon deux conditions</th><td><code>NB.SI.ENS(H2:H301;"&gt;=2";C2:C301;"éloigné")</code></td></tr>
+        <tr><th scope="row">Moyenne, médiane</th><td><code>MOYENNE(J2:J301)</code>, <code>MEDIANE(J2:J301)</code></td></tr>
+        <tr><th scope="row">Créer une catégorie</th><td><code>SI(D2&lt;35;"moins de 35";"35 et plus")</code></td></tr>
+        <tr><th scope="row">Tout croiser d'un coup</th><td>Insertion › Tableau croisé dynamique</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <aside class="exemple" aria-labelledby="exemple-titre">
+    <div class="exemple-titre" id="exemple-titre">Exemple malien · l'enquête de mi-parcours de BADENYA (300 femmes)</div>
+    <div class="exemple-corps">
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Vente au moins 2 fois par mois</th><th scope="col">Effectif du groupe</th><th scope="col">Résultat</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Ensemble</th><td>300</td><td>55,0 % (165)</td></tr>
+            <tr><th scope="row">Villages proches du marché</th><td>192</td><td>66,1 % (127)</td></tr>
+            <tr><th scope="row">Villages éloignés</th><td>108</td><td>35,2 % (38)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Le revenu maraîcher de la dernière saison a une moyenne de 165 082 FCFA et une médiane de 123 250 FCFA. Trois femmes dépassent 1 million de FCFA : elles tirent la moyenne vers le haut. La médiane décrit mieux la situation de la plupart des femmes.</p>
+      <p><small>Base fictive, construite pour l'exercice du module.</small></p>
+    </div>
+  </aside>
+
+  <div class="piege">
+    <strong>Piège courant.</strong> Changer de dénominateur sans le dire. « 66 % des femmes » n'a pas le même sens que « 66 % des femmes des villages proches ». Écrivez toujours de quel groupe il s'agit.
+  </div>
+
+  <section class="retenir" aria-labelledby="retenir-titre">
+    <h2 id="retenir-titre">À retenir</h2>
+    <ul>
+      <li>Catégorie : effectif et pourcentage ; nombre : moyenne et médiane.</li>
+      <li>Toujours « pourcentage (effectif) » et un dénominateur clair.</li>
+      <li>On ventile chaque indicateur selon les sous-groupes du plan d'analyse.</li>
+    </ul>
+  </section>
+
+  <h2>Vérifiez votre compréhension</h2>
+  <div data-quiz="m6-6-2">
+    <div class="quiz-question" data-bonne="c">
+      <fieldset>
+        <legend>1. Revenus de 5 femmes : 80 000, 90 000, 100 000, 110 000 et 1 000 000 FCFA. Quelle valeur décrit le mieux le revenu « habituel » ?</legend>
+        <label class="choix"><input type="radio" name="q1" id="m6-6-2-1a" value="a"> La moyenne, 276 000 FCFA</label>
+        <label class="choix"><input type="radio" name="q1" id="m6-6-2-1b" value="b"> Le maximum</label>
+        <label class="choix"><input type="radio" name="q1" id="m6-6-2-1c" value="c"> La médiane, 100 000 FCFA</label>
+        <label class="choix"><input type="radio" name="q1" id="m6-6-2-1d" value="d"> La somme</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>Une seule valeur très élevée tire la moyenne vers le haut. La médiane, valeur du milieu, résiste aux valeurs extrêmes.</div>
+    </div>
+    <div class="quiz-question" data-bonne="b">
+      <fieldset>
+        <legend>2. 165 femmes sur 300 vendent au moins deux fois par mois. Comment présenter ce résultat ?</legend>
+        <label class="choix"><input type="radio" name="q2" id="m6-6-2-2a" value="a"> 55 %</label>
+        <label class="choix"><input type="radio" name="q2" id="m6-6-2-2b" value="b"> 55 % (165)</label>
+        <label class="choix"><input type="radio" name="q2" id="m6-6-2-2c" value="c"> 165</label>
+        <label class="choix"><input type="radio" name="q2" id="m6-6-2-2d" value="d"> Plus de la moitié, environ</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>On donne la proportion et l'effectif : le lecteur voit la tendance et sur combien de personnes elle repose.</div>
+    </div>
+    <div class="quiz-question" data-bonne="a">
+      <fieldset>
+        <legend>3. Pourquoi ventiler l'indicateur de vente régulière par distance au marché ?</legend>
+        <label class="choix"><input type="radio" name="q3" id="m6-6-2-3a" value="a"> Pour vérifier si les femmes des villages éloignés progressent autant que les autres</label>
+        <label class="choix"><input type="radio" name="q3" id="m6-6-2-3b" value="b"> Pour allonger le rapport</label>
+        <label class="choix"><input type="radio" name="q3" id="m6-6-2-3c" value="c"> Parce que la moyenne est fausse</label>
+        <label class="choix"><input type="radio" name="q3" id="m6-6-2-3d" value="d"> Pour cacher un mauvais résultat</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>Une moyenne générale de 55 % peut cacher 66 % dans les villages proches et 35 % dans les villages éloignés.</div>
+    </div>
+    <p class="score" aria-live="polite"></p>
+    <button type="button" class="bouton secondaire" data-recommencer>Recommencer le quiz</button>
+  </div>
+
+  <nav class="navigation" aria-label="Navigation entre les sections">
+    <a class="bouton secondaire" href="6-1.html">Section 6.1</a>
+    <button type="button" class="bouton secondaire" data-terminer="m6-6-2">J'ai terminé cette section</button>
+    <a class="bouton" href="6-3.html">Section 6.3</a>
+  </nav>
+</main>
+<footer>
+  <div class="contenu">
+    <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
+    <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/quiz.js"></script>
+</body>
+</html>

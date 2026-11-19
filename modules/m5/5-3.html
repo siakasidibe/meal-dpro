@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>5.3 Échantillonnage</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="entete">
+  <div class="contenu">
+    <img class="logo" src="../../assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
+    <div class="entete-titre">
+      <strong>Le MEAL en pratique</strong>
+      <span>Module 5 · Section 5.3 sur 4</span>
+    </div>
+  </div>
+  <div class="progression" aria-hidden="true"><div style="width:75%"></div></div>
+</header>
+<main class="contenu">
+  <p class="fil"><a href="index.html">Module 5 : Collecter les données</a> › 5.3</p>
+  <h1>5.3 L'échantillonnage aléatoire et ciblé</h1>
+  <ul class="reperes" aria-label="Repères">
+    <li>Lecture : 25 min</li>
+    <li>Fil rouge : projet BADENYA</li>
+  </ul>
+  <p class="objectif"><strong>Objectif.</strong> À la fin de cette section, vous saurez choisir entre un échantillon aléatoire et un échantillon ciblé, calculer la taille d'un échantillon et tirer les personnes à interroger.</p>
+
+  <section class="testez" aria-labelledby="testez-titre">
+    <h2 id="testez-titre">Testez-vous avant de lire</h2>
+    <p>Prenez une minute pour réfléchir. Il n'y a rien à rendre.</p>
+    <ol>
+      <li>Pour connaître l'avis des 500 maraîchères, faut-il en interroger 50, 100 ou 250 ? Sur quoi vous appuyez-vous ?
+        <details><summary>Une piste</summary><p>La réponse dépend de la précision voulue et de la taille de la population. Un calcul simple permet de décider.</p></details></li>
+      <li>L'animatrice propose d'interroger « les femmes présentes à la réunion ». Qu'en pensez-vous ?
+        <details><summary>Une piste</summary><p>Les absentes sont peut-être celles qui ont le plus de difficultés. Le hasard protège de ce piège.</p></details></li>
+    </ol>
+  </section>
+
+  <h2>L'essentiel</h2>
+  <p>On interroge rarement tout le monde. On choisit un <strong>échantillon</strong>, et la façon de le choisir dépend de la question posée.</p>
+  <div class="tableau">
+    <table>
+      <thead><tr><th scope="col"></th><th scope="col">Échantillon aléatoire</th><th scope="col">Échantillon ciblé</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Pour quoi</th><td>Mesurer un indicateur et généraliser à toute la population (« combien »)</td><td>Comprendre une expérience en profondeur (« pourquoi », « comment »)</td></tr>
+        <tr><th scope="row">Comment on choisit</th><td>Au hasard, dans une liste : chacun a la même chance d'être tiré</td><td>Délibérément, selon des caractéristiques utiles à la question</td></tr>
+        <tr><th scope="row">Outils typiques</th><td>Questionnaire, observation avec grille</td><td>Groupe de discussion, entretien approfondi</td></tr>
+        <tr><th scope="row">Limite</th><td>Demande une liste et un calcul de taille</td><td>Les résultats ne se généralisent pas</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Les quatre étapes d'un échantillon aléatoire</h3>
+  <ol>
+    <li><strong>Définir la population et l'unité.</strong> À BADENYA : les 500 maraîchères inscrites dans les 10 villages ciblés ; l'unité est la maraîchère. Guémou, hors cible, n'en fait pas partie.</li>
+    <li><strong>Choisir la méthode de tirage.</strong>
+      <ul>
+        <li><em>Aléatoire simple</em> : tirage au sort dans toute la liste.</li>
+        <li><em>Systématique</em> : une personne toutes les k personnes de la liste, à partir d'un départ tiré au hasard.</li>
+        <li><em>Par grappes</em> : on tire d'abord des villages, puis des personnes dans les villages tirés. Moins de déplacements, mais moins de précision.</li>
+        <li><em>Stratifié</em> : on tire séparément dans chaque sous-groupe (village, tranche d'âge). C'est la méthode à choisir quand on veut des résultats par sous-groupe.</li>
+      </ul></li>
+    <li><strong>Calculer la taille</strong> (voir ci-dessous).</li>
+    <li><strong>Tirer les personnes</strong> dans la <em>base d'échantillonnage</em>, c'est-à-dire la liste : ici, la liste des participantes. Sans liste, on utilise le parcours aléatoire : départ tiré au sort sur une carte du village, puis une concession toutes les N le long du chemin.</li>
+  </ol>
+
+  <h3>Calculer la taille de l'échantillon</h3>
+  <p>Deux choix fixent la taille : la <strong>marge d'erreur</strong> (l'écart maximal accepté entre le résultat de l'échantillon et la vraie valeur, par exemple ±10 points) et le <strong>niveau de confiance</strong> (en général 95 %, soit z = 1,96). Quand on ne connaît pas la proportion attendue, on prend p = 0,5, le cas le plus exigeant.</p>
+  <p class="objectif">n0 = z² × p × (1 − p) ÷ e²<br>Petite population : n = n0 ÷ (1 + (n0 − 1) ÷ N)<br>Puis on ajoute les non-réponses : n ÷ (1 − taux)</p>
+
+  <aside class="exemple" aria-labelledby="exemple-titre">
+    <div class="exemple-titre" id="exemple-titre">Exemple malien · taille de l'échantillon pour les 500 maraîchères</div>
+    <div class="exemple-corps">
+      <div class="tableau">
+        <table>
+          <thead><tr><th scope="col">Marge d'erreur (95 %)</th><th scope="col">n0</th><th scope="col">n pour N = 500</th><th scope="col">Avec 10 % de non-réponses</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">± 10 points</th><td>96</td><td>81</td><td>90</td></tr>
+            <tr><th scope="row">± 7 points</th><td>196</td><td>142</td><td>158</td></tr>
+            <tr><th scope="row">± 5 points</th><td>384</td><td>218</td><td>243</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Pour le suivi trimestriel, ±10 points suffisent pour voir une tendance : 90 femmes. Pour l'évaluation finale, plus exigeante, on vise ±5 points : 243 femmes. Pour 500 femmes, passer de ±10 à ±5 points multiplie presque l'échantillon par trois.</p>
+    </div>
+  </aside>
+
+  <h3>Deux biais à éviter</h3>
+  <ul>
+    <li><strong>Le biais de commodité</strong> : interroger celles qui sont faciles à joindre, près de la route ou présentes au bureau.</li>
+    <li><strong>Le biais de volontariat</strong> : interroger celles qui se proposent, souvent les plus motivées ou les plus mécontentes.</li>
+  </ul>
+
+  <div class="piege">
+    <strong>Piège courant.</strong> Vouloir comparer deux sous-groupes avec un échantillon calculé pour l'ensemble. Pour comparer les moins de 35 ans et les autres avec ±10 points chacun, il faut environ 70 femmes dans chaque groupe, pas 90 au total.
+  </div>
+
+  <section class="retenir" aria-labelledby="retenir-titre">
+    <h2 id="retenir-titre">À retenir</h2>
+    <ul>
+      <li>Aléatoire pour mesurer et généraliser ; ciblé pour comprendre.</li>
+      <li>Population, méthode, taille, tirage dans la liste : quatre étapes.</li>
+      <li>La taille dépend de la marge d'erreur, du niveau de confiance et de la taille de la population ; on ajoute les non-réponses.</li>
+      <li>Stratifier quand on veut des résultats par village ou par âge.</li>
+    </ul>
+  </section>
+
+  <h2>Vérifiez votre compréhension</h2>
+  <div data-quiz="m5-5-3">
+    <div class="quiz-question" data-bonne="d">
+      <fieldset>
+        <legend>1. Pour estimer la part des 500 maraîchères qui vendent régulièrement, quel type d'échantillon faut-il ?</legend>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-3-1a" value="a"> Un échantillon ciblé de femmes motivées</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-3-1b" value="b"> Les femmes présentes à la réunion du jour</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-3-1c" value="c"> Les femmes des villages proches de la route</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-3-1d" value="d"> Un échantillon aléatoire tiré de la liste des 500 participantes</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>Seul un tirage au hasard permet de généraliser à toutes les participantes. Les autres choix introduisent un biais de commodité ou de volontariat.</div>
+    </div>
+    <div class="quiz-question" data-bonne="a">
+      <fieldset>
+        <legend>2. Que se passe-t-il, en général, quand on augmente la taille de l'échantillon ?</legend>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-3-2a" value="a"> La marge d'erreur diminue</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-3-2b" value="b"> La marge d'erreur augmente</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-3-2c" value="c"> Le biais disparaît forcément</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-3-2d" value="d"> Rien ne change</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>Plus l'échantillon est grand, plus l'estimation est précise. Mais un grand échantillon mal tiré reste biaisé.</div>
+    </div>
+    <div class="quiz-question" data-bonne="c">
+      <fieldset>
+        <legend>3. L'équipe veut comprendre pourquoi les jeunes femmes du village le plus éloigné vendent peu. Quel échantillonnage convient ?</legend>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-3-3a" value="a"> Aléatoire simple sur tout le projet</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-3-3b" value="b"> Par grappes de 5 villages</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-3-3c" value="c"> Ciblé : un groupe de discussion avec des jeunes femmes de ce village</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-3-3d" value="d"> Aucun : on suppose la réponse</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>Pour comprendre une expérience particulière, on choisit délibérément les personnes qui la vivent. Le résultat éclaire, mais ne se généralise pas.</div>
+    </div>
+    <p class="score" aria-live="polite"></p>
+    <button type="button" class="bouton secondaire" data-recommencer>Recommencer le quiz</button>
+  </div>
+
+  <nav class="navigation" aria-label="Navigation entre les sections">
+    <a class="bouton secondaire" href="5-2.html">Section 5.2</a>
+    <button type="button" class="bouton secondaire" data-terminer="m5-5-3">J'ai terminé cette section</button>
+    <a class="bouton" href="5-4.html">Section 5.4</a>
+  </nav>
+</main>
+<footer>
+  <div class="contenu">
+    <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
+    <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/quiz.js"></script>
+</body>
+</html>

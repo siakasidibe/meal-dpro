@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>5.4 Saisie, nettoyage et sécurité</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="entete">
+  <div class="contenu">
+    <img class="logo" src="../../assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
+    <div class="entete-titre">
+      <strong>Le MEAL en pratique</strong>
+      <span>Module 5 · Section 5.4 sur 4</span>
+    </div>
+  </div>
+  <div class="progression" aria-hidden="true"><div style="width:100%"></div></div>
+</header>
+<main class="contenu">
+  <p class="fil"><a href="index.html">Module 5 : Collecter les données</a> › 5.4</p>
+  <h1>5.4 Saisie, nettoyage, stockage et sécurité</h1>
+  <ul class="reperes" aria-label="Repères">
+    <li>Lecture : 20 min</li>
+    <li>Fil rouge : projet BADENYA</li>
+  </ul>
+  <p class="objectif"><strong>Objectif.</strong> À la fin de cette section, vous saurez organiser la saisie, nettoyer une base de données et protéger les données personnelles des participantes.</p>
+
+  <section class="testez" aria-labelledby="testez-titre">
+    <h2 id="testez-titre">Testez-vous avant de lire</h2>
+    <p>Prenez une minute pour réfléchir. Il n'y a rien à rendre.</p>
+    <ol>
+      <li>Où sont rangées aujourd'hui les fiches papier et les fichiers de votre dernière enquête ? Qui peut les ouvrir ?
+        <details><summary>Une piste</summary><p>Si la réponse est « sur l'ordinateur de quelqu'un » ou « dans un groupe WhatsApp », les données ne sont ni sauvegardées ni protégées.</p></details></li>
+      <li>Si une base indique qu'une femme a 110 ans, que faites-vous ?
+        <details><summary>Une piste</summary><p>Ni supprimer en silence, ni garder tel quel : on vérifie à la source et on note la correction.</p></details></li>
+    </ol>
+  </section>
+
+  <h2>L'essentiel</h2>
+  <p>Gérer les données, c'est s'en occuper de leur entrée dans la base jusqu'à leur destruction. Quatre éléments :</p>
+
+  <h3>1. La saisie</h3>
+  <p>Avec Kobo, les données arrivent directement dans la base. Sur papier, on écrit un <strong>protocole de saisie</strong> : qui saisit, dans quel délai, avec quelles règles (codes des réponses, valeur manquante, fiche illisible), et qui contrôle. Une personne qui saisit doit connaître le questionnaire et ses sauts de questions.</p>
+
+  <h3>2. Le nettoyage</h3>
+  <p>Nettoyer, c'est repérer et corriger les erreurs avant l'analyse. Les contrôles de base :</p>
+  <ul>
+    <li><strong>Doublons</strong> : chaque fiche a un identifiant unique ; un identifiant répété est une double saisie ou une erreur de code.</li>
+    <li><strong>Valeurs aberrantes</strong> : un âge de 7 ou 110 ans, 45 ventes en un mois.</li>
+    <li><strong>Incohérences</strong> : « pas de culture en saison sèche » mais des cultures de saison sèche indiquées.</li>
+    <li><strong>Valeurs manquantes</strong> : une réponse obligatoire vide.</li>
+    <li><strong>Hors population</strong> : une fiche d'un village non ciblé.</li>
+    <li><strong>Contrôle de saisie</strong> (papier) : on tire au hasard quelques fiches et on les compare à la base.</li>
+  </ul>
+  <p>Chaque correction se vérifie à la source (fiche, animatrice, liste des participantes) et s'inscrit dans un <strong>registre des erreurs</strong>. Avec Kobo, on regarde les premières fiches dès le premier jour : une erreur de formulaire se corrige alors avant de se répéter partout.</p>
+
+  <h3>3. Le stockage et la sécurité</h3>
+  <ul>
+    <li>Une seule base de référence, sauvegardée chaque semaine sur un second support (coupures de courant, vol, panne).</li>
+    <li>Accès protégé par mot de passe et limité aux personnes qui en ont besoin.</li>
+    <li>Les noms séparés des réponses : chaque femme a un code ; la liste qui relie codes et noms est rangée à part, sous clé.</li>
+    <li>Pas de base complète envoyée par WhatsApp ou par courriel ; on partage des tableaux de résultats.</li>
+    <li>Les fiches papier sont gardées dans une armoire fermée.</li>
+  </ul>
+  <p>Au Mali, la loi n° 2013-015 du 21 mai 2013 protège les données à caractère personnel, et l'Autorité de protection des données à caractère personnel (APDP) veille à son application. Les bailleurs ont souvent leurs propres règles, à lire dans la convention.</p>
+
+  <h3>4. La conservation et l'élimination</h3>
+  <p>On décide dès le départ combien de temps les données sont gardées. À la fin, on détruit les fiches papier (déchiqueter ou brûler) et on efface les fichiers, ou bien on les <strong>dépersonnalise</strong> :</p>
+  <ul>
+    <li><em>pseudonymisation</em> : les noms sont remplacés par des codes, mais une clé permet de retrouver les personnes ;</li>
+    <li><em>anonymisation</em> : tout ce qui permet de retrouver une personne est supprimé, clé comprise.</li>
+  </ul>
+
+  <aside class="exemple" aria-labelledby="exemple-titre">
+    <div class="exemple-titre" id="exemple-titre">Exemple malien · la routine de données de BADENYA</div>
+    <div class="exemple-corps">
+      <ul>
+        <li>Les animatrices remplissent les fiches sur KoboCollect et les envoient le soir, au retour à Bangassi ou à Kayes.</li>
+        <li>Le chargé de suivi vérifie chaque lundi les fiches de la semaine : doublons, valeurs hors limites, villages.</li>
+        <li>Il télécharge la base, la sauvegarde sur le disque du bureau et sur une clé gardée par le coordinateur.</li>
+        <li>La liste des participantes avec noms et numéros de téléphone n'est que sur l'ordinateur du chargé de suivi, protégée par mot de passe.</li>
+      </ul>
+      <p><small>Projet réel anonymisé. Organisation proposée pour l'exemple.</small></p>
+    </div>
+  </aside>
+
+  <div class="piege">
+    <strong>Piège courant.</strong> Corriger la base sans laisser de trace. Quelques mois plus tard, personne ne sait plus pourquoi les chiffres ont changé, et l'intégrité des données ne peut plus être démontrée.
+  </div>
+
+  <section class="retenir" aria-labelledby="retenir-titre">
+    <h2 id="retenir-titre">À retenir</h2>
+    <ul>
+      <li>Quatre éléments : saisie, nettoyage, stockage et sécurité, conservation et élimination.</li>
+      <li>Doublons, valeurs aberrantes, incohérences, manquants : on vérifie à la source et on note chaque correction.</li>
+      <li>Noms séparés des réponses, accès limité, sauvegarde régulière.</li>
+    </ul>
+  </section>
+
+  <h2>Vérifiez votre compréhension</h2>
+  <div data-quiz="m5-5-4">
+    <div class="quiz-question" data-bonne="b">
+      <fieldset>
+        <legend>1. Dans la base, la même maraîchère F-017 apparaît deux fois. Quelle étape du nettoyage repère ce problème ?</legend>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-4-1a" value="a"> Le contrôle des valeurs aberrantes</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-4-1b" value="b"> La recherche des doublons sur l'identifiant unique</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-4-1c" value="c"> L'anonymisation</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-4-1d" value="d"> La sauvegarde</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>Chaque fiche doit avoir un identifiant unique. Un identifiant répété signale une double saisie ou une erreur de code.</div>
+    </div>
+    <div class="quiz-question" data-bonne="d">
+      <fieldset>
+        <legend>2. Laquelle de ces pratiques protège le mieux les données personnelles des maraîchères ?</legend>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-4-2a" value="a"> Partager le fichier complet par WhatsApp pour aller plus vite</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-4-2b" value="b"> Garder les noms et les réponses dans le même fichier ouvert à toute l'équipe</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-4-2c" value="c"> Imprimer la base et l'afficher au bureau</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-4-2d" value="d"> Séparer les noms des réponses, remplacer les noms par un code et protéger l'accès par mot de passe</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>On ne garde que ce qui est nécessaire, on remplace les noms par un code et on limite l'accès. La clé qui relie codes et noms est rangée à part.</div>
+    </div>
+    <div class="quiz-question" data-bonne="c">
+      <fieldset>
+        <legend>3. Une base indique qu'une maraîchère a 110 ans. Que faire ?</legend>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-4-3a" value="a"> La supprimer sans rien noter</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-4-3b" value="b"> La garder : c'est la réponse donnée</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-4-3c" value="c"> Vérifier la fiche ou rappeler l'enquêtrice, corriger, et noter la correction dans le registre des erreurs</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-4-3d" value="d"> Remplacer par l'âge moyen sans le dire</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>On vérifie à la source et on trace chaque correction. Le registre des erreurs aide aussi à éviter les mêmes erreurs à la collecte suivante.</div>
+    </div>
+    <p class="score" aria-live="polite"></p>
+    <button type="button" class="bouton secondaire" data-recommencer>Recommencer le quiz</button>
+  </div>
+
+  <nav class="navigation" aria-label="Navigation entre les sections">
+    <a class="bouton secondaire" href="5-3.html">Section 5.3</a>
+    <button type="button" class="bouton secondaire" data-terminer="m5-5-4">J'ai terminé cette section</button>
+    <a class="bouton" href="exercice.html">À vous de jouer</a>
+  </nav>
+</main>
+<footer>
+  <div class="contenu">
+    <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
+    <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/quiz.js"></script>
+</body>
+</html>

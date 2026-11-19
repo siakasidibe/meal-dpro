@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>5.2 Questionnaire et XLSForm</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="entete">
+  <div class="contenu">
+    <img class="logo" src="../../assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
+    <div class="entete-titre">
+      <strong>Le MEAL en pratique</strong>
+      <span>Module 5 · Section 5.2 sur 4</span>
+    </div>
+  </div>
+  <div class="progression" aria-hidden="true"><div style="width:50%"></div></div>
+</header>
+<main class="contenu">
+  <p class="fil"><a href="index.html">Module 5 : Collecter les données</a> › 5.2</p>
+  <h1>5.2 Le questionnaire et le formulaire XLSForm pour Kobo</h1>
+  <ul class="reperes" aria-label="Repères">
+    <li>Lecture : 30 min</li>
+    <li>Fil rouge : projet BADENYA</li>
+  </ul>
+  <p class="objectif"><strong>Objectif.</strong> À la fin de cette section, vous saurez rédiger des questions claires à partir des indicateurs, les écrire dans un fichier XLSForm et mettre le formulaire sur téléphone avec KoboToolbox.</p>
+
+  <section class="testez" aria-labelledby="testez-titre">
+    <h2 id="testez-titre">Testez-vous avant de lire</h2>
+    <p>Prenez une minute pour réfléchir. Il n'y a rien à rendre.</p>
+    <ol>
+      <li>Que pensez-vous de la question « Vendez-vous souvent et à bon prix ? » ?
+        <details><summary>Une piste</summary><p>Elle contient deux questions, et « souvent » ou « bon prix » ne veulent pas dire la même chose pour tout le monde.</p></details></li>
+      <li>Dans votre organisation, combien de temps passe-t-on entre la fin d'une enquête papier et le premier tableau de résultats ?
+        <details><summary>Une piste</summary><p>Avec un formulaire sur téléphone, les fiches arrivent sur le serveur dès qu'il y a du réseau, et la saisie disparaît.</p></details></li>
+    </ol>
+  </section>
+
+  <h2>L'essentiel</h2>
+  <h3>1. Partir des indicateurs</h3>
+  <p>Chaque question doit servir un indicateur du plan de gestion de la performance ou une question d'apprentissage. On reprend la fiche de référence : chaque terme de la définition et chaque sous-groupe de ventilation donnent une question. Une question « intéressante » qui ne sert à aucune décision fait perdre du temps aux femmes et aux enquêtrices.</p>
+
+  <h3>2. Rédiger de bonnes questions</h3>
+  <div class="tableau">
+    <table>
+      <thead><tr><th scope="col">Règle</th><th scope="col">À éviter</th><th scope="col">Mieux</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Une seule idée</th><td>Vendez-vous souvent et à bon prix ?</td><td>Combien de fois avez-vous vendu des légumes le mois dernier ?</td></tr>
+        <tr><th scope="row">Une période précise et courte</th><td>Combien avez-vous gagné cette année ?</td><td>Combien avez-vous reçu pour votre dernière vente d'oignons ?</td></tr>
+        <tr><th scope="row">Pas de réponse suggérée</th><td>La formation vous a beaucoup aidée, n'est-ce pas ?</td><td>Qu'avez-vous changé dans votre parcelle depuis la formation ?</td></tr>
+        <tr><th scope="row">Observer plutôt que demander, quand c'est possible</th><td>Pratiquez-vous le paillage ?</td><td>(Observation) Paillage visible dans la parcelle : oui / non</td></tr>
+        <tr><th scope="row">Unités connues</th><td>Quelle quantité en kg ?</td><td>Combien de sacs de 50 kg ? (unité locale convertie ensuite)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>On ordonne les questions du plus simple au plus délicat, on commence par le <strong>consentement</strong>, on écrit la traduction en langue locale des mots clés, puis on <strong>prétest</strong> le questionnaire avec quelques femmes d'un village hors échantillon. Le prétest montre les questions mal comprises avant qu'elles ne touchent tout l'échantillon.</p>
+
+  <h3>3. Écrire le formulaire en XLSForm</h3>
+  <p>Un XLSForm est un simple classeur Excel que KoboToolbox transforme en formulaire pour téléphone. Il a trois feuilles :</p>
+  <ul>
+    <li><strong>survey</strong> : une ligne par question, avec au minimum les colonnes <code>type</code>, <code>name</code> (nom court sans espace ni accent) et <code>label</code> (le texte lu par l'enquêtrice) ;</li>
+    <li><strong>choices</strong> : les listes de réponses, avec <code>list_name</code>, <code>name</code> et <code>label</code> ;</li>
+    <li><strong>settings</strong> : le titre (<code>form_title</code>) et l'identifiant (<code>form_id</code>) du formulaire.</li>
+  </ul>
+  <div class="tableau">
+    <table>
+      <thead><tr><th scope="col">Type</th><th scope="col">Pour quoi</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><code>integer</code>, <code>decimal</code></th><td>Un nombre entier, un nombre à virgule</td></tr>
+        <tr><th scope="row"><code>text</code></th><td>Une réponse libre courte</td></tr>
+        <tr><th scope="row"><code>select_one liste</code></th><td>Une seule réponse dans une liste de la feuille choices</td></tr>
+        <tr><th scope="row"><code>select_multiple liste</code></th><td>Plusieurs réponses possibles dans une liste</td></tr>
+        <tr><th scope="row"><code>date</code>, <code>geopoint</code>, <code>image</code></th><td>Une date, une position GPS, une photo</td></tr>
+        <tr><th scope="row"><code>note</code>, <code>calculate</code></th><td>Un message affiché sans réponse ; un calcul automatique</td></tr>
+        <tr><th scope="row"><code>begin_group</code> … <code>end_group</code></th><td>Un bloc de questions qui va ensemble</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Quatre colonnes de la feuille survey font la qualité du formulaire :</p>
+  <ul>
+    <li><code>required</code> : <code>yes</code> rend la réponse obligatoire ;</li>
+    <li><code>relevant</code> : affiche la question sous condition, par exemple <code>${saison_seche} = 'oui'</code> ;</li>
+    <li><code>constraint</code> : refuse les valeurs impossibles, par exemple <code>. &gt;= 0 and . &lt;= 30</code> (le point désigne la réponse) ;</li>
+    <li><code>constraint_message</code> : le message affiché quand la valeur est refusée.</li>
+  </ul>
+
+  <aside class="exemple" aria-labelledby="exemple-titre">
+    <div class="exemple-titre" id="exemple-titre">Exemple malien · trois lignes du formulaire de suivi de BADENYA</div>
+    <div class="exemple-corps">
+      <div class="cl-ligne"><p>A-t-elle fait au moins un cycle de culture pendant la dernière saison sèche ?</p><dl>
+        <dt>type</dt><dd><code>select_one oui_non</code></dd><dt>name</dt><dd><code>saison_seche</code></dd></dl></div>
+      <div class="cl-ligne"><p>Cultures de la dernière saison sèche</p><dl>
+        <dt>type</dt><dd><code>select_multiple cultures</code></dd><dt>name</dt><dd><code>cultures</code></dd><dt>relevant</dt><dd><code>${saison_seche} = 'oui'</code></dd></dl></div>
+      <div class="cl-ligne"><p>Combien de fois a-t-elle vendu des légumes le mois dernier ?</p><dl>
+        <dt>type</dt><dd><code>integer</code></dd><dt>name</dt><dd><code>nb_ventes</code></dd><dt>constraint</dt><dd><code>. &gt;= 0 and . &lt;= 30</code></dd></dl></div>
+      <p>Dans la feuille choices, la liste <code>oui_non</code> contient deux lignes : <code>oui</code> / Oui et <code>non</code> / Non.</p>
+    </div>
+  </aside>
+
+  <h3>4. Du fichier au téléphone</h3>
+  <ol>
+    <li>Sur kobotoolbox.org, créez un projet et choisissez « Importer un XLSForm ».</li>
+    <li>Ouvrez l'aperçu, testez chaque question, corrigez le fichier et importez-le de nouveau.</li>
+    <li>Déployez le formulaire.</li>
+    <li>Dans KoboCollect, ajoutez le serveur du projet et téléchargez le formulaire, au bureau, avec du réseau.</li>
+    <li>Au village, les fiches se remplissent <strong>sans réseau</strong> ; elles partent vers le serveur dès que le téléphone retrouve une connexion.</li>
+  </ol>
+
+  <div class="piege">
+    <strong>Piège courant.</strong> Changer le <code>name</code> d'une question après le début de la collecte. Les anciennes et les nouvelles réponses ne se retrouvent plus dans la même colonne. On fixe les noms avant le déploiement et on change seulement la version.
+  </div>
+
+  <section class="retenir" aria-labelledby="retenir-titre">
+    <h2 id="retenir-titre">À retenir</h2>
+    <ul>
+      <li>Chaque question sert un indicateur ; on part de la fiche de référence.</li>
+      <li>Une idée par question, une période précise, pas de réponse suggérée ; on prétest toujours.</li>
+      <li>XLSForm : feuilles survey, choices, settings ; required, relevant et constraint protègent la qualité.</li>
+      <li>KoboCollect fonctionne sans réseau : l'envoi se fait au retour de la connexion.</li>
+    </ul>
+  </section>
+
+  <h2>Vérifiez votre compréhension</h2>
+  <div data-quiz="m5-5-2">
+    <div class="quiz-question" data-bonne="c">
+      <fieldset>
+        <legend>1. Dans un XLSForm, quelle feuille contient les listes de réponses (oui/non, villages, techniques) ?</legend>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-2-1a" value="a"> survey</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-2-1b" value="b"> settings</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-2-1c" value="c"> choices</label>
+        <label class="choix"><input type="radio" name="q1" id="m5-5-2-1d" value="d"> data</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>La feuille survey contient les questions, choices les listes de réponses et settings le titre et l'identifiant du formulaire.</div>
+    </div>
+    <div class="quiz-question" data-bonne="a">
+      <fieldset>
+        <legend>2. Quelle colonne de la feuille survey permet de n'afficher une question que si la femme a cultivé en saison sèche ?</legend>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-2-2a" value="a"> relevant</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-2-2b" value="b"> constraint</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-2-2c" value="c"> hint</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-5-2-2d" value="d"> required</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>relevant affiche la question sous condition, par exemple ${saison_seche} = 'oui'. constraint, elle, refuse les valeurs impossibles.</div>
+    </div>
+    <div class="quiz-question" data-bonne="b">
+      <fieldset>
+        <legend>3. Pourquoi faut-il prétester le questionnaire dans un village avant la collecte ?</legend>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-2-3a" value="a"> Pour former le bailleur</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-2-3b" value="b"> Pour vérifier que les questions sont comprises de la même façon, dans la langue locale, et que le formulaire fonctionne</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-2-3c" value="c"> Pour gagner des réponses en plus</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-5-2-3d" value="d"> Parce que Kobo l'exige</label>
+      </fieldset>
+      <div class="explication" hidden><span class="verdict"></span>Le prétest révèle les questions mal comprises, les traductions ambiguës et les erreurs du formulaire avant qu'elles ne touchent 90 femmes.</div>
+    </div>
+    <p class="score" aria-live="polite"></p>
+    <button type="button" class="bouton secondaire" data-recommencer>Recommencer le quiz</button>
+  </div>
+
+  <nav class="navigation" aria-label="Navigation entre les sections">
+    <a class="bouton secondaire" href="5-1.html">Section 5.1</a>
+    <button type="button" class="bouton secondaire" data-terminer="m5-5-2">J'ai terminé cette section</button>
+    <a class="bouton" href="5-3.html">Section 5.3</a>
+  </nav>
+</main>
+<footer>
+  <div class="contenu">
+    <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
+    <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/quiz.js"></script>
+</body>
+</html>
