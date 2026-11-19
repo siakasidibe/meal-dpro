@@ -9,11 +9,13 @@
 <body>
 <header class="entete">
   <div class="contenu">
+    <a class="entete-lien" href="../../index.html" aria-label="Accueil du cours">
     <img class="logo" src="../../assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
     <div class="entete-titre">
       <strong>Le MEAL en pratique</strong>
       <span>Module 1 · Quiz</span>
     </div>
+    </a>
   </div>
   <div class="progression" aria-hidden="true"><div style="width:100%"></div></div>
 </header>
@@ -21,7 +23,7 @@
   <p class="fil"><a href="index.html">Module 1 : Le MEAL dans les projets</a> › Quiz</p>
   <h1>Quiz du module 1</h1>
   <ul class="reperes" aria-label="Repères"><li>15 questions</li><li>Durée conseillée : 1 h</li><li>Une seule bonne réponse par question</li></ul>
-  <p class="objectif">Répondez sans regarder le cours. Après chaque réponse, une explication s'affiche. Si vous vous trompez, lisez-la puis cliquez sur « Réessayer » : il faut trouver toutes les bonnes réponses pour valider le quiz. Ce quiz n'est pas noté.</p>
+  <p class="objectif">Répondez sans regarder le cours. Après chaque réponse, une explication s'affiche. Votre score reste sur votre téléphone ; il n'est pas noté.</p>
   <div data-quiz="m1-final">
     <div class="quiz-question" data-bonne="b">
       <fieldset>
@@ -46,10 +48,10 @@
     <div class="quiz-question" data-bonne="c">
       <fieldset>
         <legend>3. Envers qui la redevabilité d'un projet s'exerce-t-elle d'abord ?</legend>
-        <label class="choix"><input type="radio" name="q3" id="qm1-3a" value="a"> Le bailleur</label>
-        <label class="choix"><input type="radio" name="q3" id="qm1-3b" value="b"> Le siège de l'ONG</label>
+        <label class="choix"><input type="radio" name="q3" id="qm1-3a" value="a"> Le bailleur qui finance le projet</label>
+        <label class="choix"><input type="radio" name="q3" id="qm1-3b" value="b"> Le siège et la direction de l'ONG</label>
         <label class="choix"><input type="radio" name="q3" id="qm1-3c" value="c"> Les communautés et les participantes</label>
-        <label class="choix"><input type="radio" name="q3" id="qm1-3d" value="d"> Les services de l'État</label>
+        <label class="choix"><input type="radio" name="q3" id="qm1-3d" value="d"> Les services techniques de l'État</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>Le bailleur et l'État comptent aussi, mais la redevabilité commence auprès des personnes que le projet doit servir.</div>
     </div>
@@ -168,14 +170,26 @@
         <legend>15. Qui est responsable du MEAL dans un projet ?</legend>
         <label class="choix"><input type="radio" name="q15" id="qm1-15a" value="a"> Le chargé de suivi-évaluation seul</label>
         <label class="choix"><input type="radio" name="q15" id="qm1-15b" value="b"> Le bailleur, qui finance le MEAL</label>
-        <label class="choix"><input type="radio" name="q15" id="qm1-15c" value="c"> Toute l'équipe du projet, chacun à son niveau</label>
-        <label class="choix"><input type="radio" name="q15" id="qm1-15d" value="d"> L'évaluateur externe</label>
+        <label class="choix"><input type="radio" name="q15" id="qm1-15c" value="c"> Toute l'équipe, chacun à son niveau</label>
+        <label class="choix"><input type="radio" name="q15" id="qm1-15d" value="d"> L'évaluateur externe et son équipe</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>Le chargé de suivi-évaluation coordonne, mais animatrices, coordinateur et partenaires collectent, analysent et utilisent les données.</div>
     </div>
     <p class="score" aria-live="polite"></p>
     <button type="button" class="bouton secondaire" data-recommencer>Recommencer le quiz</button>
   </div>
+  <section class="bilan" aria-labelledby="bilan-m1">
+    <h2 id="bilan-m1">Bilan du module : que savez-vous faire ?</h2>
+    <p>Cochez seulement ce que vous savez faire sans regarder le cours. Pour une case vide, relisez la section indiquée avant le prochain samedi et posez vos questions au formateur.</p>
+    <ul>
+      <li><label><input type="checkbox" data-memo="bilan-m1-1"> <span>Distinguer suivi, évaluation, redevabilité et apprentissage dans une situation de terrain <a href="1-1.html">(section 1.1)</a></span></label></li>
+      <li><label><input type="checkbox" data-memo="bilan-m1-2"> <span>Dire qui fait quoi dans le MEAL d'un projet, de l'animatrice au bailleur <a href="1-1.html">(section 1.1)</a></span></label></li>
+      <li><label><input type="checkbox" data-memo="bilan-m1-3"> <span>Situer une tâche dans l'une des cinq phases du MEAL et expliquer la boucle <a href="1-2.html">(section 1.2)</a></span></label></li>
+      <li><label><input type="checkbox" data-memo="bilan-m1-4"> <span>Appliquer les normes éthiques de la collecte : consentement, données minimales, confidentialité <a href="1-3.html">(section 1.3)</a></span></label></li>
+      <li><label><input type="checkbox" data-memo="bilan-m1-5"> <span>Associer les participantes à l'analyse et pratiquer la réflexion critique <a href="1-4.html">(section 1.4)</a></span></label></li>
+    </ul>
+  </section>
+
   <nav class="navigation" aria-label="Navigation entre les sections">
     <a class="bouton secondaire" href="exercice.html">À vous de jouer</a>
     <button type="button" class="bouton secondaire" data-terminer="m1-quiz" data-libelle="J'ai terminé le quiz">J'ai terminé le quiz</button>
@@ -184,6 +198,7 @@
 </main>
 <footer>
   <div class="contenu">
+    <nav class="liens-pied" aria-label="Liens du cours"><a href="../../index.html">Accueil</a><a href="../../lexique.html">Lexique</a><a href="../../ressources.html">Ressources</a><a href="../../verifier.html">Vérifier un certificat</a></nav>
     <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
     <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
   </div>

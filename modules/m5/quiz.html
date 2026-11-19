@@ -9,11 +9,13 @@
 <body>
 <header class="entete">
   <div class="contenu">
+    <a class="entete-lien" href="../../index.html" aria-label="Accueil du cours">
     <img class="logo" src="../../assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
     <div class="entete-titre">
       <strong>Le MEAL en pratique</strong>
       <span>Module 5 · Quiz</span>
     </div>
+    </a>
   </div>
   <div class="progression" aria-hidden="true"><div style="width:100%"></div></div>
 </header>
@@ -21,7 +23,7 @@
   <p class="fil"><a href="index.html">Module 5 : Collecter les données</a> › Quiz</p>
   <h1>Quiz du module 5</h1>
   <ul class="reperes" aria-label="Repères"><li>15 questions</li><li>Durée conseillée : 1 h</li><li>Une seule bonne réponse par question</li></ul>
-  <p class="objectif">Répondez sans regarder le cours. Après chaque réponse, une explication s'affiche. Si vous vous trompez, lisez-la puis cliquez sur « Réessayer » : il faut trouver toutes les bonnes réponses pour valider le quiz. Ce quiz n'est pas noté.</p>
+  <p class="objectif">Répondez sans regarder le cours. Après chaque réponse, une explication s'affiche. Votre score reste sur votre téléphone ; il n'est pas noté.</p>
   <div data-quiz="m5-final">
     <div class="quiz-question" data-bonne="b">
       <fieldset>
@@ -36,20 +38,20 @@
     <div class="quiz-question" data-bonne="a">
       <fieldset>
         <legend>2. Pour que les données de vente soient précises, l'équipe doit surtout :</legend>
-        <label class="choix"><input type="radio" name="q2" id="m5-final-2a" value="a"> Collecter assez de détails pour ventiler par village et par âge, comme prévu dans le plan</label>
-        <label class="choix"><input type="radio" name="q2" id="m5-final-2b" value="b"> Collecter le plus de questions possible</label>
-        <label class="choix"><input type="radio" name="q2" id="m5-final-2c" value="c"> Arrondir tous les chiffres</label>
-        <label class="choix"><input type="radio" name="q2" id="m5-final-2d" value="d"> Ne garder que la moyenne générale</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-final-2a" value="a"> Assez de détails pour ventiler par village et âge, comme prévu</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-final-2b" value="b"> Poser le plus de questions possible pour ne rien oublier</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-final-2c" value="c"> Arrondir les montants à la centaine pour simplifier la saisie</label>
+        <label class="choix"><input type="radio" name="q2" id="m5-final-2d" value="d"> Ne garder que la moyenne générale pour comparer les années</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>La précision, c'est le niveau de détail qui permet de décider, par exemple comparer les villages éloignés et proches.</div>
     </div>
     <div class="quiz-question" data-bonne="c">
       <fieldset>
         <legend>3. Avant d'écrire la première question, l'équipe part :</legend>
-        <label class="choix"><input type="radio" name="q3" id="m5-final-3a" value="a"> D'un questionnaire d'un autre projet copié tel quel</label>
-        <label class="choix"><input type="radio" name="q3" id="m5-final-3b" value="b"> Des questions que les enquêtrices aiment poser</label>
-        <label class="choix"><input type="radio" name="q3" id="m5-final-3c" value="c"> Du plan de gestion de la performance et des fiches de référence des indicateurs</label>
-        <label class="choix"><input type="radio" name="q3" id="m5-final-3d" value="d"> Du budget</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-final-3a" value="a"> D'un questionnaire d'un autre projet, repris tel quel</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-final-3b" value="b"> Des questions que les enquêtrices ont l'habitude de poser</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-final-3c" value="c"> Du plan de gestion de la performance et des fiches</label>
+        <label class="choix"><input type="radio" name="q3" id="m5-final-3d" value="d"> Du budget disponible pour la collecte des données</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>Chaque question doit servir un indicateur ou une question d'apprentissage. Une question qui ne sert à rien coûte du temps aux femmes.</div>
     </div>
@@ -66,30 +68,30 @@
     <div class="quiz-question" data-bonne="b">
       <fieldset>
         <legend>5. Dans un XLSForm, que fait la contrainte « . &gt;= 0 and . &lt;= 30 » sur le nombre de ventes du mois ?</legend>
-        <label class="choix"><input type="radio" name="q5" id="m5-final-5a" value="a"> Elle rend la question facultative</label>
+        <label class="choix"><input type="radio" name="q5" id="m5-final-5a" value="a"> Elle rend la question facultative pour l'enquêtrice</label>
         <label class="choix"><input type="radio" name="q5" id="m5-final-5b" value="b"> Elle refuse une valeur négative ou supérieure à 30</label>
-        <label class="choix"><input type="radio" name="q5" id="m5-final-5c" value="c"> Elle cache la question</label>
-        <label class="choix"><input type="radio" name="q5" id="m5-final-5d" value="d"> Elle calcule une moyenne</label>
+        <label class="choix"><input type="radio" name="q5" id="m5-final-5c" value="c"> Elle cache la question si la femme ne vend pas</label>
+        <label class="choix"><input type="radio" name="q5" id="m5-final-5d" value="d"> Elle calcule la moyenne des ventes du groupement</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>La contrainte bloque la saisie d'une valeur impossible sur le téléphone. C'est le premier rempart pour l'intégrité des données.</div>
     </div>
     <div class="quiz-question" data-bonne="a">
       <fieldset>
         <legend>6. Pourquoi KoboCollect convient-il aux villages de Bangassi où le réseau est irrégulier ?</legend>
-        <label class="choix"><input type="radio" name="q6" id="m5-final-6a" value="a"> On remplit les formulaires sans réseau et on les envoie quand le réseau revient</label>
-        <label class="choix"><input type="radio" name="q6" id="m5-final-6b" value="b"> Il fonctionne seulement avec Internet</label>
-        <label class="choix"><input type="radio" name="q6" id="m5-final-6c" value="c"> Il remplace le questionnaire</label>
-        <label class="choix"><input type="radio" name="q6" id="m5-final-6d" value="d"> Il ne demande pas de téléphone</label>
+        <label class="choix"><input type="radio" name="q6" id="m5-final-6a" value="a"> On remplit hors réseau et on envoie quand il revient</label>
+        <label class="choix"><input type="radio" name="q6" id="m5-final-6b" value="b"> Il envoie chaque réponse par SMS, sans Internet</label>
+        <label class="choix"><input type="radio" name="q6" id="m5-final-6c" value="c"> Il remplace le questionnaire par un enregistrement</label>
+        <label class="choix"><input type="radio" name="q6" id="m5-final-6d" value="d"> Il fonctionne sur papier puis se scanne au bureau</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>Le formulaire est téléchargé une fois. Les fiches sont gardées sur le téléphone puis envoyées au serveur dès qu'il y a du réseau.</div>
     </div>
     <div class="quiz-question" data-bonne="c">
       <fieldset>
         <legend>7. La « base d'échantillonnage » de l'enquête auprès des maraîchères est :</legend>
-        <label class="choix"><input type="radio" name="q7" id="m5-final-7a" value="a"> La carte de la commune</label>
-        <label class="choix"><input type="radio" name="q7" id="m5-final-7b" value="b"> Le questionnaire</label>
-        <label class="choix"><input type="radio" name="q7" id="m5-final-7c" value="c"> La liste des 500 participantes inscrites au projet</label>
-        <label class="choix"><input type="radio" name="q7" id="m5-final-7d" value="d"> Le nombre d'enquêtrices</label>
+        <label class="choix"><input type="radio" name="q7" id="m5-final-7a" value="a"> La carte de la commune avec les 10 villages</label>
+        <label class="choix"><input type="radio" name="q7" id="m5-final-7b" value="b"> Le questionnaire validé après le prétest</label>
+        <label class="choix"><input type="radio" name="q7" id="m5-final-7c" value="c"> La liste des 500 participantes inscrites</label>
+        <label class="choix"><input type="radio" name="q7" id="m5-final-7d" value="d"> Le tableau des enquêtrices et de leurs villages</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>C'est la liste dans laquelle on tire l'échantillon. Si elle est incomplète, certaines femmes n'ont aucune chance d'être tirées.</div>
     </div>
@@ -106,10 +108,10 @@
     <div class="quiz-question" data-bonne="b">
       <fieldset>
         <legend>9. Le niveau de confiance de 95 % signifie que :</legend>
-        <label class="choix"><input type="radio" name="q9" id="m5-final-9a" value="a"> 95 % des femmes ont répondu</label>
-        <label class="choix"><input type="radio" name="q9" id="m5-final-9b" value="b"> Sur un grand nombre de tirages, 95 % des échantillons donneraient une valeur dans la marge d'erreur autour de la vraie valeur</label>
-        <label class="choix"><input type="radio" name="q9" id="m5-final-9c" value="c"> Les données sont justes à 95 %</label>
-        <label class="choix"><input type="radio" name="q9" id="m5-final-9d" value="d"> Il manque 5 % des questionnaires</label>
+        <label class="choix"><input type="radio" name="q9" id="m5-final-9a" value="a"> 95 % des femmes tirées au sort ont accepté de répondre</label>
+        <label class="choix"><input type="radio" name="q9" id="m5-final-9b" value="b"> 95 % des échantillons tomberaient dans la marge d'erreur</label>
+        <label class="choix"><input type="radio" name="q9" id="m5-final-9c" value="c"> Les réponses sont exactes pour 95 % des questions posées</label>
+        <label class="choix"><input type="radio" name="q9" id="m5-final-9d" value="d"> Il manque au plus 5 % des questionnaires attendus</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>C'est la confiance dans la méthode de tirage, pas un taux de réponse ni un taux d'exactitude des données.</div>
     </div>
@@ -117,9 +119,9 @@
       <fieldset>
         <legend>10. Pour 500 maraîchères, avec 95 % de confiance et une marge de ±10 %, il faut environ 81 femmes. Pourquoi en prévoir 90 ?</legend>
         <label class="choix"><input type="radio" name="q10" id="m5-final-10a" value="a"> Pour tenir compte des absentes et des refus</label>
-        <label class="choix"><input type="radio" name="q10" id="m5-final-10b" value="b"> Parce que 90 est un chiffre rond</label>
-        <label class="choix"><input type="radio" name="q10" id="m5-final-10c" value="c"> Pour dépenser le budget</label>
-        <label class="choix"><input type="radio" name="q10" id="m5-final-10d" value="d"> Pour tromper le bailleur</label>
+        <label class="choix"><input type="radio" name="q10" id="m5-final-10b" value="b"> Pour obtenir un nombre rond, plus facile à répartir</label>
+        <label class="choix"><input type="radio" name="q10" id="m5-final-10c" value="c"> Pour réduire la marge d'erreur à ±5 points</label>
+        <label class="choix"><input type="radio" name="q10" id="m5-final-10d" value="d"> Pour avoir 9 femmes par village dans chaque cas</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>On ajoute en général 10 % pour les non-réponses : 81 ÷ 0,9 ≈ 90.</div>
     </div>
@@ -136,10 +138,10 @@
     <div class="quiz-question" data-bonne="c">
       <fieldset>
         <legend>12. Les quatre éléments de la gestion des données sont :</legend>
-        <label class="choix"><input type="radio" name="q12" id="m5-final-12a" value="a"> Collecte, analyse, rapport, archivage</label>
-        <label class="choix"><input type="radio" name="q12" id="m5-final-12b" value="b"> Questionnaire, échantillon, enquête, rapport</label>
-        <label class="choix"><input type="radio" name="q12" id="m5-final-12c" value="c"> Saisie, nettoyage, stockage et sécurité, conservation et élimination</label>
-        <label class="choix"><input type="radio" name="q12" id="m5-final-12d" value="d"> Kobo, Excel, Word, PowerPoint</label>
+        <label class="choix"><input type="radio" name="q12" id="m5-final-12a" value="a"> Collecte, analyse, rapport et archivage</label>
+        <label class="choix"><input type="radio" name="q12" id="m5-final-12b" value="b"> Questionnaire, échantillon, enquête et rapport</label>
+        <label class="choix"><input type="radio" name="q12" id="m5-final-12c" value="c"> Saisie, nettoyage, stockage-sécurité, conservation</label>
+        <label class="choix"><input type="radio" name="q12" id="m5-final-12d" value="d"> Kobo, Excel, Word et PowerPoint</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>Ils couvrent toute la vie des données, de leur entrée dans la base jusqu'à leur destruction ou leur anonymisation.</div>
     </div>
@@ -156,26 +158,37 @@
     <div class="quiz-question" data-bonne="a">
       <fieldset>
         <legend>14. Le consentement éclairé d'une maraîchère avant l'entretien suppose qu'elle :</legend>
-        <label class="choix"><input type="radio" name="q14" id="m5-final-14a" value="a"> Sait pourquoi on la questionne, ce que deviendront ses réponses, et qu'elle peut refuser sans perdre l'appui du projet</label>
-        <label class="choix"><input type="radio" name="q14" id="m5-final-14b" value="b"> Signe un document en français</label>
-        <label class="choix"><input type="radio" name="q14" id="m5-final-14c" value="c"> Reçoit un cadeau</label>
-        <label class="choix"><input type="radio" name="q14" id="m5-final-14d" value="d"> Est accompagnée de son mari</label>
+        <label class="choix"><input type="radio" name="q14" id="m5-final-14a" value="a"> Sait pourquoi on l'interroge et peut refuser sans perdre l'appui</label>
+        <label class="choix"><input type="radio" name="q14" id="m5-final-14b" value="b"> Signe un formulaire en français avant le début de l'entretien</label>
+        <label class="choix"><input type="radio" name="q14" id="m5-final-14c" value="c"> Reçoit un petit cadeau pour la remercier de son temps</label>
+        <label class="choix"><input type="radio" name="q14" id="m5-final-14d" value="d"> A obtenu l'accord de son mari ou du chef de village</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>On explique en langue locale ; l'accord peut être oral et noté par l'enquêtrice. Refuser ne doit avoir aucune conséquence.</div>
     </div>
     <div class="quiz-question" data-bonne="b">
       <fieldset>
         <legend>15. Pourquoi vérifier les premières fiches envoyées dès le premier jour de collecte ?</legend>
-        <label class="choix"><input type="radio" name="q15" id="m5-final-15a" value="a"> Pour finir plus tôt</label>
-        <label class="choix"><input type="radio" name="q15" id="m5-final-15b" value="b"> Pour repérer tout de suite une erreur qui se répéterait sur toutes les fiches</label>
-        <label class="choix"><input type="radio" name="q15" id="m5-final-15c" value="c"> Pour calculer les résultats finaux</label>
-        <label class="choix"><input type="radio" name="q15" id="m5-final-15d" value="d"> Parce que le serveur s'efface</label>
+        <label class="choix"><input type="radio" name="q15" id="m5-final-15a" value="a"> Pour pouvoir terminer la collecte un jour plus tôt</label>
+        <label class="choix"><input type="radio" name="q15" id="m5-final-15b" value="b"> Pour repérer une erreur qui se répéterait partout</label>
+        <label class="choix"><input type="radio" name="q15" id="m5-final-15c" value="c"> Pour calculer les premiers résultats pour le bailleur</label>
+        <label class="choix"><input type="radio" name="q15" id="m5-final-15d" value="d"> Parce que le serveur efface les fiches non vérifiées</label>
       </fieldset>
       <div class="explication" hidden><span class="verdict"></span>Une question mal comprise ou un formulaire mal réglé se corrige le premier jour, pas après 90 entretiens.</div>
     </div>
     <p class="score" aria-live="polite"></p>
     <button type="button" class="bouton secondaire" data-recommencer>Recommencer le quiz</button>
   </div>
+  <section class="bilan" aria-labelledby="bilan-m5">
+    <h2 id="bilan-m5">Bilan du module : que savez-vous faire ?</h2>
+    <p>Cochez seulement ce que vous savez faire sans regarder le cours. Pour une case vide, relisez la section indiquée avant le prochain samedi et posez vos questions au formateur.</p>
+    <ul>
+      <li><label><input type="checkbox" data-memo="bilan-m5-1"> <span>Vérifier une donnée avec les cinq critères de qualité <a href="5-1.html">(section 5.1)</a></span></label></li>
+      <li><label><input type="checkbox" data-memo="bilan-m5-2"> <span>Construire un formulaire XLSForm avec contraintes et sauts, puis le prétester <a href="5-2.html">(section 5.2)</a></span></label></li>
+      <li><label><input type="checkbox" data-memo="bilan-m5-3"> <span>Calculer une taille d'échantillon et choisir entre tirage aléatoire et choix ciblé <a href="5-3.html">(section 5.3)</a></span></label></li>
+      <li><label><input type="checkbox" data-memo="bilan-m5-4"> <span>Nettoyer une base (doublons, valeurs impossibles) et protéger les données personnelles <a href="5-4.html">(section 5.4)</a></span></label></li>
+    </ul>
+  </section>
+
   <nav class="navigation" aria-label="Navigation entre les sections">
     <a class="bouton secondaire" href="exercice.html">À vous de jouer</a>
     <button type="button" class="bouton secondaire" data-terminer="m5-quiz" data-libelle="J'ai terminé le quiz">J'ai terminé le quiz</button>
@@ -184,6 +197,7 @@
 </main>
 <footer>
   <div class="contenu">
+    <nav class="liens-pied" aria-label="Liens du cours"><a href="../../index.html">Accueil</a><a href="../../lexique.html">Lexique</a><a href="../../ressources.html">Ressources</a><a href="../../verifier.html">Vérifier un certificat</a></nav>
     <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
     <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
   </div>

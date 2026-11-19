@@ -140,4 +140,30 @@
       if (lien) { lien.classList.add('verrouille'); lien.setAttribute('aria-disabled', 'true'); lien.addEventListener('click', function (e) { e.preventDefault(); }); }
     } else if (i >= 0) el.textContent = 'À faire';
   });
+
+  // Accueil : état de chaque module, progression générale et bouton « Reprendre »
+  var faites = P.filter(function (p) { return fait(p[0]); }).length;
+  document.querySelectorAll('[data-module]').forEach(function (el) {
+    var m = el.getAttribute('data-module'), etapes = P.filter(function (p) { return p[0].indexOf(m + '-') === 0; });
+    var ok = etapes.filter(function (p) { return fait(p[0]); }).length, debut = rang(etapes[0][0]);
+    el.textContent = ok === etapes.length ? 'Terminé ✓' : ok ? ok + ' sur ' + etapes.length : debut > 0 && premierManquant(debut) ? 'Verrouillé' : 'À faire';
+  });
+  var jauge = document.querySelector('[data-jauge]'), texte = document.querySelector('[data-avancement]');
+  if (jauge) jauge.style.width = Math.round(100 * faites / P.length) + '%';
+  if (texte && faites) texte.textContent = faites === P.length ? 'Bravo : vous avez terminé tout le parcours en ligne. Rendez-vous à la séance finale.'
+    : faites + (faites > 1 ? ' étapes terminées' : ' étape terminée') + ' sur ' + P.length + ' (' + Math.round(100 * faites / P.length) + '\u00a0%).';
+  var prochaine = null;
+  for (var k = 0; k < P.length; k++) if (!fait(P[k][0])) { prochaine = P[k]; break; }
+  document.querySelectorAll('[data-reprendre]').forEach(function (a) {
+    if (!faites) return;
+    if (prochaine) { a.href = R + prochaine[1]; a.textContent = 'Reprendre : ' + prochaine[2]; }
+    else { a.href = R + 'ressources.html'; a.textContent = 'Revoir les ressources du cours'; }
+  });
+
+  // Cases à cocher mémorisées sur l'appareil (bilan de fin de module)
+  document.querySelectorAll('input[data-memo]').forEach(function (c) {
+    var cle = 'memo-' + c.getAttribute('data-memo');
+    c.checked = !!lire(cle);
+    c.addEventListener('change', function () { ecrire(cle, c.checked); });
+  });
 })();

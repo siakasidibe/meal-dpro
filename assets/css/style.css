@@ -205,3 +205,32 @@ figure.graphique small { display: block; color: var(--texte-doux); margin-top: 4
 .sommaire a.verrouille { opacity: .5; cursor: not-allowed; }
 .explication .reessayer { display: block; margin-top: 10px; }
 .navigation a.bouton.verrouille { opacity: .5; cursor: not-allowed; }
+
+/* En-tête cliquable, liens du pied de page */
+.entete-lien { display: flex; align-items: center; gap: 12px; min-width: 0; color: inherit; text-decoration: none; }
+.liens-pied { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-bottom: 14px; font-weight: 600; }
+/* Accueil : progression */
+.avancement { background: var(--fond-doux); border: 1px solid var(--ligne); border-radius: var(--rayon); padding: 4px 16px 16px; margin: 24px 0; }
+.avancement h2 { border: 0; margin: 12px 0 6px; padding: 0; font-size: 1.15rem; }
+.jauge { height: 10px; background: var(--ligne); border-radius: 99px; overflow: hidden; margin: 0 0 14px; }
+.jauge div { height: 100%; width: 0; background: var(--vert); }
+.avancement .bouton { max-width: 100%; white-space: normal; text-align: left; }
+/* Compétences, bilan, application */
+.competences { padding-left: 1.2rem; }
+.competences li { margin-bottom: 6px; }
+.bilan ul { list-style: none; padding: 0; }
+.bilan li { margin-bottom: 8px; }
+.bilan label { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--ligne); border-radius: var(--rayon); cursor: pointer; }
+.bilan input { width: 22px; height: 22px; flex: none; margin-top: 2px; accent-color: var(--vert); }
+.bilan a { white-space: nowrap; font-size: .9rem; }
+.transfert { border: 2px solid var(--jaune); background: var(--jaune-doux); border-radius: var(--rayon); padding: 4px 16px 8px; margin: 32px 0 16px; }
+.transfert h2 { border: 0; margin-top: 12px; padding: 0; }
+.transfert ol { padding-left: 1.2rem; }
+.transfert li { margin-bottom: 8px; }
+.note { font-size: .9rem; color: var(--texte-doux); }
+/* Lexique */
+.lexique dt { font-weight: 700; color: var(--vert-fonce); margin-top: 14px; }
+.lexique dd { margin: 2px 0 0; }
+.lexique dd small { color: var(--texte-doux); }
+.alphabet { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; list-style: none; }
+.alphabet a { display: inline-block; min-width: 36px; padding: 6px 8px; text-align: center; border: 1px solid var(--ligne); border-radius: 8px; text-decoration: none; font-weight: 600; }

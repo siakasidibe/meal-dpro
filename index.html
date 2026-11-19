@@ -9,11 +9,13 @@
 <body>
 <header class="entete">
   <div class="contenu">
+    <a class="entete-lien" href="index.html" aria-label="Accueil du cours">
     <img class="logo" src="assets/img/logo-mc.png" alt="MC Consulting, cabinet de formation et de promotion" width="64" height="42">
     <div class="entete-titre">
       <strong>Le MEAL en pratique</strong>
       <span>Accueil du cours</span>
     </div>
+    </a>
   </div>
   <div class="progression" aria-hidden="true"><div style="width:0%"></div></div>
 </header>
@@ -26,16 +28,23 @@
   </ul>
   <p class="objectif">Un cours pour apprendre à concevoir et faire vivre le suivi, l'évaluation, la redevabilité et l'apprentissage (MEAL) d'un projet de développement, du cadre logique jusqu'au rapport de suivi, sur un seul cas suivi du début à la fin.</p>
 
+  <section class="avancement" aria-labelledby="titre-avancement">
+    <h2 id="titre-avancement">Votre progression</h2>
+    <p data-avancement>Vous n'avez pas encore commencé.</p>
+    <div class="jauge" aria-hidden="true"><div data-jauge></div></div>
+    <a class="bouton" href="modules/m0/index.html" data-reprendre>Commencer le cours</a>
+  </section>
+
   <h2>Les modules</h2>
   <ol class="sommaire">
-    <li><a href="modules/m0/index.html"><span>Module 0 · Bienvenue</span><span class="duree">2 h</span></a></li>
-    <li><a href="modules/m1/index.html"><span>Module 1 · Le MEAL dans les projets</span><span class="duree">5 h</span></a></li>
-    <li><a href="modules/m2/index.html"><span>Module 2 · Théorie du changement et cadre des résultats</span><span class="duree">5 h</span></a></li>
-    <li><a href="modules/m3/index.html"><span>Module 3 · Cadre logique et indicateurs</span><span class="duree">5 h</span></a></li>
-    <li><a href="modules/m4/index.html"><span>Module 4 · Planifier le MEAL</span><span class="duree">5 h</span></a></li>
-    <li><a href="modules/m5/index.html"><span>Module 5 · Collecter les données</span><span class="duree">5 h</span></a></li>
-    <li><a href="modules/m6/index.html"><span>Module 6 · Analyser les données</span><span class="duree">5 h</span></a></li>
-    <li><a href="modules/m7/index.html"><span>Module 7 · Utiliser les données</span><span class="duree">5 h</span></a></li>
+    <li><a href="modules/m0/index.html"><span>Module 0 · Bienvenue</span><span class="duree">2 h</span></a><span class="etat" data-module="m0"></span></li>
+    <li><a href="modules/m1/index.html"><span>Module 1 · Le MEAL dans les projets</span><span class="duree">5 h</span></a><span class="etat" data-module="m1"></span></li>
+    <li><a href="modules/m2/index.html"><span>Module 2 · Théorie du changement et cadre des résultats</span><span class="duree">5 h</span></a><span class="etat" data-module="m2"></span></li>
+    <li><a href="modules/m3/index.html"><span>Module 3 · Cadre logique et indicateurs</span><span class="duree">5 h</span></a><span class="etat" data-module="m3"></span></li>
+    <li><a href="modules/m4/index.html"><span>Module 4 · Planifier le MEAL</span><span class="duree">5 h</span></a><span class="etat" data-module="m4"></span></li>
+    <li><a href="modules/m5/index.html"><span>Module 5 · Collecter les données</span><span class="duree">5 h</span></a><span class="etat" data-module="m5"></span></li>
+    <li><a href="modules/m6/index.html"><span>Module 6 · Analyser les données</span><span class="duree">5 h</span></a><span class="etat" data-module="m6"></span></li>
+    <li><a href="modules/m7/index.html"><span>Module 7 · Utiliser les données</span><span class="duree">5 h</span></a><span class="etat" data-module="m7"></span></li>
     <li class="pause"><span>Séance finale : quiz final et présentation des plans MEAL (en salle)</span><span class="duree">3 h</span></li>
   </ol>
   <p class="total">Total : 40 h</p>
@@ -43,16 +52,20 @@
   <h2>Comment ça marche</h2>
   <ul>
     <li>Chaque module se suit un samedi : des sections courtes, une pause, un exercice de 2 h en groupe et un quiz de 15 questions.</li>
+    <li>Chaque module annonce les compétences visées, puis se termine par un bilan et un travail d'application sur votre propre projet.</li>
+    <li>Les quiz servent à apprendre : après une erreur, lisez l'explication et réessayez. Une étape se valide quand toutes les réponses sont justes, et les sections s'ouvrent dans l'ordre.</li>
     <li>Le site fonctionne sur téléphone. Votre progression reste sur votre appareil.</li>
+    <li>Un <a href="lexique.html">lexique</a> et une page de <a href="ressources.html">ressources</a> (fiches à imprimer, modèles Excel, liens utiles) sont accessibles en bas de chaque page.</li>
     <li>Le cours est gratuit. Seul un montant forfaitaire est demandé pour l'impression et la signature du certificat (<a href="https://forms.gle/1t39PEKNKpQZZzZZ7" rel="noopener">formulaire d'inscription</a>). Un certificat peut être <a href="verifier.html">vérifié en ligne</a> grâce à son numéro.</li>
   </ul>
 
   <nav class="navigation" aria-label="Navigation">
-    <a class="bouton" href="modules/m0/index.html">Commencer par le module 0</a>
+    <a class="bouton" href="modules/m0/index.html" data-reprendre>Commencer le cours</a>
   </nav>
 </main>
 <footer>
   <div class="contenu">
+    <nav class="liens-pied" aria-label="Liens du cours"><a href="index.html">Accueil</a><a href="lexique.html">Lexique</a><a href="ressources.html">Ressources</a><a href="verifier.html">Vérifier un certificat</a></nav>
     <p>© 2026 MC Consulting Mopti, cabinet de formation et de promotion. Contenu original, organisé selon le référentiel MEAL DPro. Le cas BADENYA s'inspire d'un projet réel anonymisé.</p>
     <p>Pour aller plus loin : le guide MEAL DPro de Humentum, Humanitarian Leadership Academy et Catholic Relief Services, publié par PM4NGOs sous licence CC BY-NC-SA 4.0, est gratuit sur <a href="https://www.pm4ngos.org" rel="noopener">pm4ngos.org</a>. Ce cours n'est ni produit ni certifié par PM4NGOs.</p>
   </div>
